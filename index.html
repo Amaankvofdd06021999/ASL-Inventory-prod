@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/hoc7elr.css">
+<title>ASL Inventory Coming Soon</title>
+<meta name="description" content="Parts, stock and fleet maintenance for the Arawak Stevedoring central store, in one place. Launching 1 December 2026.">
+<meta name="theme-color" content="#101a2c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASL Inventory is coming soon">
+<meta property="og:description" content="Parts, stock and fleet maintenance for the Arawak Stevedoring central store, in one place.">
+<meta property="og:image" content="/poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: looping warehouse video, softened and graded, under a centred headline and countdown; ASL mark top-left, MCash wordmark bottom-left. Single committed dark look. */
+  :root {
+    --bg: #101a2c;
+    --fg: #f4f6fa;
+    --muted: rgba(244, 246, 250, .74);
+    --dim: rgba(244, 246, 250, .52);
+    --gold: #d9ae5a;
+    --spring: #66d575;
+    --glass: rgba(244, 246, 250, .08);
+    --glass-line: rgba(244, 246, 250, .18);
+    --font-display: "neue-haas-grotesk-display", "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-main: "neue-haas-grotesk-text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-main); overflow: hidden; -webkit-font-smoothing: antialiased; }
+
+  .bgwrap { position: fixed; inset: 0; overflow: hidden; background: var(--bg); }
+  .bg { position: absolute; inset: -3%; width: 106%; height: 106%; object-fit: cover; object-position: center;
+    filter: blur(1.6px) saturate(.85) brightness(.78); animation: drift 36s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: scale(1) translate3d(0, 0, 0); } to { transform: scale(1.06) translate3d(-1%, 0.5%, 0); } }
+  .grade { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 72% 62% at 50% 46%, rgba(16, 26, 44, .14), rgba(16, 26, 44, .66) 100%),
+                linear-gradient(180deg, rgba(16, 26, 44, .45), rgba(16, 26, 44, .05) 28%, rgba(16, 26, 44, .05) 72%, rgba(16, 26, 44, .5)); }
+  @media (prefers-reduced-motion: reduce) { .bg { animation: none; } }
+
+  .ui {
+    position: relative; z-index: 2; height: 100%; box-sizing: border-box;
+    display: grid; grid-template-rows: auto 1fr auto;
+    padding-block: clamp(16px, 3vh, 28px);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-width: 0; }
+  .asl { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .asl img { height: clamp(40px, 5.6vw, 58px); width: auto; display: block; }
+  .asl .name { font-family: var(--font-display); font-weight: 600; font-size: 17px; letter-spacing: -.02em; line-height: 1.1; }
+  .asl .name small { display: block; font-family: var(--font-main); font-weight: 400; font-size: 12px; color: var(--muted); margin-top: 2px; }
+  @media (max-width: 560px) { .asl .name { display: none; } }
+  .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+  @media (max-width: 560px) { .mono .hide { display: none; } }
+
+  .centre { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: clamp(14px, 2.6vh, 26px); min-width: 0; padding-bottom: 2vh; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--glass-line); background: var(--glass);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); font-size: 13px; color: var(--muted); border-radius: 999px; }
+  .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--spring); box-shadow: 0 0 10px var(--spring); }
+  h1 { margin: 0; font-family: var(--font-display); font-size: clamp(42px, 6.6vw, 96px); line-height: .98; letter-spacing: -.035em; text-wrap: balance; text-shadow: 0 2px 34px rgba(0, 0, 0, .4); }
+  h1 b { font-weight: 600; display: block; } h1 span { font-weight: 300; display: block; color: rgba(244, 246, 250, .9); }
+  .lede { margin: 0; max-width: 44ch; font-size: clamp(15px, 1.35vw, 19px); line-height: 1.45; color: var(--muted); text-wrap: balance; }
+
+  .timer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.4vw, 18px); width: min(100%, 640px); margin-top: clamp(6px, 1.2vh, 16px); }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: clamp(14px, 2vw, 26px) 8px;
+    background: var(--glass); border: 1px solid var(--glass-line); border-radius: 14px; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); min-width: 0; }
+  .num { font-family: var(--font-display); font-weight: 500; font-size: clamp(30px, 3.8vw, 50px); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+  @media (max-width: 480px) { .timer { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .note { margin: 0; font-size: 13px; color: var(--dim); }
+
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .powered { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: var(--dim); }
+  .powered svg { height: 16px; width: auto; color: var(--fg); display: block; }
+  @media (max-height: 620px) { .lede, .note { display: none; } .centre { gap: 10px; } }
+</style>
+</head>
+<body>
+
+<div class="bgwrap" aria-hidden="true">
+  <video class="bg" autoplay muted loop playsinline preload="auto" poster="poster.jpg">
+    <source src="forklift.mp4" type="video/mp4">
+  </video>
+  <div class="grade"></div>
+</div>
+
+<div class="ui">
+  <header class="bar">
+    <div class="asl">
+      <img src="asl-logo-light.png" alt="Arawak Stevedoring Limited">
+      <div class="name">ASL Inventory<small>Arawak Stevedoring Limited</small></div>
+    </div>
+    <div class="mono"><span class="hide">Arawak Cay · Nassau · </span>25°04′N 77°21′W</div>
+  </header>
+
+  <main class="centre">
+    <div class="pill">Launching soon</div>
+    <h1><b>ASL Inventory</b><span>is coming soon</span></h1>
+    <p class="lede">Parts, stock and fleet maintenance for the Arawak Stevedoring central store, in one place.</p>
+    <div class="timer" role="timer" aria-live="off">
+      <div class="cell"><div class="num" id="d">00</div><div class="lbl">Days</div></div>
+      <div class="cell"><div class="num" id="h">00</div><div class="lbl">Hours</div></div>
+      <div class="cell"><div class="num" id="m">00</div><div class="lbl">Minutes</div></div>
+      <div class="cell"><div class="num" id="s">00</div><div class="lbl">Seconds</div></div>
+    </div>
+    <p class="note" id="launch-note"></p>
+  </main>
+
+  <footer class="foot">
+    <div class="powered">Powered by
+      <svg viewBox="0 0 253 37" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MCash">
+        <path fill="currentColor" d="M79.8819 30.2165C79.4272 27.4251 76.9293 25.2835 73.9062 25.2835C70.5692 25.2835 67.8599 27.9016 67.8599 31.1263C67.8599 32.3085 68.225 33.404 68.8463 34.3262C69.3715 35.1061 70.0888 35.7559 70.9343 36.214C71.8118 36.6967 72.8301 36.9691 73.9062 36.9691C74.9822 36.9691 76.0006 36.6967 76.878 36.214C77.7235 35.7559 78.4472 35.1061 78.9724 34.3262C79.4272 33.6454 79.741 32.8717 79.8819 32.0361C79.9268 31.739 79.9524 31.4358 79.9524 31.1263C79.9524 30.8168 79.9268 30.5135 79.8819 30.2165ZM79.8755 9.38926V23.3772C79.472 23.0801 79.0237 22.8078 78.5689 22.5726C77.1727 21.8546 75.5842 21.4585 73.9062 21.4585C72.2281 21.4585 70.5948 21.8732 69.1921 22.6035C68.731 22.8449 68.2827 23.1111 67.8663 23.4391V17.8006L50.4706 34.6047C49.7725 35.2855 48.9655 35.824 48.1008 36.214C46.0256 37.1547 43.5982 37.2352 41.3949 36.3501C41.286 36.3068 41.1835 36.2635 41.081 36.214C39.9602 35.7188 38.993 34.9946 38.2244 34.1158C36.9819 32.7046 36.2517 30.8663 36.2517 28.9167V17.6149L19.1635 34.1158L16.9922 36.214H0L2.17126 34.1158L34.0036 3.36082C36.4119 1.10171 39.9666 0.433255 43.0794 1.68351C45.3211 2.58096 47.012 4.33255 47.787 6.46169C48.1072 7.32201 48.2801 8.23804 48.2801 9.1912V20.3073L65.5221 3.63934C67.9368 1.30596 71.5299 0.618936 74.6876 1.87538C77.8388 3.13801 79.8755 6.09033 79.8755 9.38926ZM117.696 23.5134H129.168L129.046 24.5408C128.098 32.2032 119.97 36.9691 107.859 36.9691C93.281 36.9691 84.9162 30.2412 84.9162 18.5124V18.4505C84.9162 6.89495 93.7806 0.00618936 108.614 0.00618936C120.656 0.00618936 128.092 4.47491 129.046 12.2673L129.168 13.2947H117.696L117.524 12.5706C116.659 8.70843 110.754 8.28755 108.249 8.28755C102.773 8.28755 96.2272 10.0515 96.2272 18.4505C96.2272 27.3941 103.625 28.7186 108.031 28.7186C110.017 28.7186 116.588 28.3968 117.524 24.2437L117.696 23.5196V23.5134ZM172.234 36.2511H160.372L149.113 11.3513L137.93 36.2511H126.612L127.24 34.9451C131.768 25.5621 137.693 13.2452 143.367 1.2812L143.617 0.748913H155.152L155.409 1.2812C160.251 11.4441 165.547 22.455 171.594 34.9451L172.228 36.2511H172.234ZM210.593 25.234C210.593 30.6311 207.115 37 190.546 37C181.246 37 170.498 35.5826 169.858 24.5718L169.8 23.6H181.406L181.489 24.4356C181.81 27.8088 184.352 29.0033 191.193 29.0033C199.525 29.0033 199.525 26.8061 199.525 26.0882C199.525 24.4542 198.385 23.6248 191.635 22.9068L185.902 22.3436C175.488 21.279 170.639 17.8749 170.639 11.6546C170.639 4.22733 177.666 0 189.918 0C202.171 0 208.729 3.67648 209.139 11.2337L209.184 12.1992H197.636L197.514 11.4256C197.136 9.02409 194.671 7.99665 189.29 7.99665C186.421 7.99665 181.598 8.34326 181.598 10.7014C181.598 11.9578 182.072 12.8058 188.445 13.4433L194.254 14.0313C204.348 15.034 210.606 17.2559 210.606 25.234H210.593ZM253 1.67113C252.955 12.8367 252.955 24.1695 253 35.3351V36.2511H242.112V22.5231H224.421V36.2511H213.533V35.3351C213.578 24.1695 213.578 12.8367 213.533 1.67113V0.755102H224.421V14.2479H242.112V0.748913H253V1.66494V1.67113Z"/>
+      </svg>
+    </div>
+    <div class="mono" id="launch-label"></div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const LAUNCH = new Date('2026-12-01T09:00:00-05:00');   // change the launch moment here
+  const pad = n => String(n).padStart(2, '0');
+  const $ = id => document.getElementById(id);
+  const dateText = LAUNCH.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Nassau' });
+  $('launch-label').textContent = 'Launch · ' + dateText;
+  $('launch-note').textContent = 'Going live ' + dateText + ' for ASL mechanics, storekeepers and supervisors.';
+  function tick() {
+    let diff = Math.max(0, LAUNCH - Date.now()) / 1000;
+    const d = Math.floor(diff / 86400); diff -= d * 86400;
+    const h = Math.floor(diff / 3600); diff -= h * 3600;
+    const m = Math.floor(diff / 60); const s = Math.floor(diff - m * 60);
+    $('d').textContent = pad(d); $('h').textContent = pad(h); $('m').textContent = pad(m); $('s').textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+  // autoplay can be refused in some app views; retry once the page is visible
+  const v = document.querySelector('video.bg');
+  const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  play(); document.addEventListener('visibilitychange', () => { if (!document.hidden) play(); });
+})();
+</script>
+</body>
+</html>
