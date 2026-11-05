@@ -129,7 +129,7 @@
   const $ = id => document.getElementById(id);
   const dateText = LAUNCH.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Nassau' });
   $('launch-label').textContent = 'Launch · ' + dateText;
-  $('launch-note').textContent = 'Going live ' + dateText + ' for ASL mechanics, Operations, and Administrator.';
+  $('launch-note').textContent = 'Going live ' + dateText + ' for ASL Mechanics, Operations, and Administrator.';
   function tick() {
     let diff = Math.max(0, LAUNCH - Date.now()) / 1000;
     const d = Math.floor(diff / 86400); diff -= d * 86400;
